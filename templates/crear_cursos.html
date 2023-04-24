@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block contenido_title %}
+<title>Crear curso</title>
+{% endblock contenido_title %}
+
+{% block contenido_header %}
+    <h1 class="mb-5">Crear curso</h1>
+{% endblock contenido_header %}
+
+
+{% block contenido %}
+<form action={% url 'crear_cursos' %} method="POST">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    {% comment %} <input type="submit" value="Crear"> {% endcomment %}
+    <button>Crear</button>
+</form>
+{% endblock contenido %}

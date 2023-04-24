@@ -5,5 +5,8 @@ from coder import views
 
 urlpatterns = [
     path('', views.inicio, name='inicio'),
-    path('prueba-render/', views.prueba_render, name='prueba_render'),
+    path('cursos/', views.cursos, name='cursos'),
+    path('crear-cursos/', views.crear_cursos, name='crear_cursos'),
+    path('estudiantes/', views.estudiantes, name='estudiantes'),
+    path('profesores/', views.profesores, name='profesores'),
 ]

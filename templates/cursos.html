@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block contenido_title %}
+        <title>Cursos</title>
+{% endblock  %}
+{% block contenido_header %}
+        <h1 class="mb-5">Bienvenido a los Cursos</h1>
+{% endblock contenido_header %}
+
+{% block contenido %}
+        {% if cursos %}
+                {% for curso in cursos %}
+                        <li>{{curso.comision}} - {{curso.lenguaje}}</li>
+                {% endfor %}
+        {% else %}
+                <h2>No hay datos sobre cursos por el momento.</h2>
+        {% endif %}
+        <a class="navbar-brand" href={% url 'crear_cursos' %}>Crear Cursos</a>
+{% endblock contenido %}
