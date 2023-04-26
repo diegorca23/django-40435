@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block contenido_title %}
+        <title>Cursos</title>
+{% endblock  %}
+{% block contenido_header %}
+        <h1 class="mb-5">{{curso_a_mostrar}}</h1>
+{% endblock contenido_header %}
+
+{% block contenido %}
+<ul>
+    <li>Comision: {{curso_a_mostrar.comision}}</li>
+    <li>Lenguaje: {{curso_a_mostrar.lenguaje}}</li>
+</ul>
+<p>
+    <button>
+        <a class="navbar-brand" href={% url 'modificar_cursos' curso_a_mostrar.id %}>Modificar</a>
+    </button>
+    <button>
+        <a class="navbar-brand" href={% url 'eliminar_cursos' curso_a_mostrar.id %}>Eliminar</a>
+    </button>
+</p> 
+{% endblock contenido %}

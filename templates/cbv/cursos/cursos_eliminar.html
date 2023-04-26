@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block contenido_title %}
+        <title>Eliminar Cursos</title>
+{% endblock  %}
+{% block contenido_header %}
+        <h1 class="mb-5">Eliminar Curso</h1>
+{% endblock contenido_header %}
+
+{% block contenido %}
+<form action={% url 'eliminar_cursos' curso.id %} method="POST">
+    {% csrf_token %}
+    <p>Desea realmente eliminar el curso {{curso.comision}}?</p>
+    <button>Confirmar</button>
+</form>
+{% endblock contenido %}

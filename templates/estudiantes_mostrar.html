@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block contenido_title %}
+        <title>Estudiante</title>
+{% endblock  %}
+{% block contenido_header %}
+        <h1 class="mb-5">{{estudiante_a_mostrar}}</h1>
+{% endblock contenido_header %}
+
+{% block contenido %}
+<ul>
+    <li>Nombre: {{estudiante_a_mostrar.nombre}}</li>
+    <li>Edad: {{estudiante_a_mostrar.edad}}</li>
+</ul>
+<p>
+    <button>
+        <a class="navbar-brand" href={% url 'modificar_estudiantes' estudiante_a_mostrar.id %}>Modificar</a>
+    </button>
+    <button>
+        <a class="navbar-brand" href={% url 'eliminar_estudiantes' estudiante_a_mostrar.id %}>Eliminar</a>
+    </button>
+</p>
+{% endblock contenido %}

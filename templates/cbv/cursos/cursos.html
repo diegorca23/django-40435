@@ -8,8 +8,8 @@
 {% endblock contenido_header %}
 
 {% block contenido %}
-        {% if cursos %}
-                {% for curso in cursos %}
+        {% if object_list %}
+                {% for curso in object_list %}
                         <li>
                                 <a class="navbar-brand" href={% url 'mostrar_cursos' curso.id %}>{{curso.comision}} - {{curso.lenguaje}}</a>
                                 <button>

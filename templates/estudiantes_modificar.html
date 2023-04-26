@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block contenido_title %}
+        <title>Modificar Estudiante</title>
+{% endblock  %}
+{% block contenido_header %}
+        <h1 class="mb-5">Modificar Estudiante</h1>
+{% endblock contenido_header %}
+
+{% block contenido %}
+<form action={% url 'modificar_estudiantes' id_estudiante %} method="POST">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    <button>Modificar</button>
+</form>
+{% endblock contenido %}
