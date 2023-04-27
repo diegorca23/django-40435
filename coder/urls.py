@@ -1,5 +1,5 @@
-from django.urls import path
 from coder import views
+from django.urls import path
 
 # app_name = 'coder'
 
@@ -23,8 +23,10 @@ urlpatterns = [
     # PROFESORES
     path('profesores/', views.listar_profesores, name='profesores'),
 
-
-    ### CBV p/ CURSOS
+    ### ### ### CLASES BASADAS EN VISTAS (CBV) ### ### ###
+    ###         ..............................         ###
+    
+    # CURSOS (CBV)
     path('cursos/', views.ListaCursos.as_view(), name='cursos'),
     path('cursos/crear/', views.CrearCurso.as_view(), name='crear_cursos'),
     path('cursos/<int:pk>/', views.MostrarCurso.as_view(), name='mostrar_cursos'),

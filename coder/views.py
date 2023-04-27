@@ -1,10 +1,12 @@
-from django.shortcuts import render, redirect
+from coder.forms import (CrearCursos, CrearEstudiantes, ModificarCursos,
+                         ModificarEstudiantes)
 from coder.models import Curso, Estudiante
-from coder.forms import CrearCursos, ModificarCursos, CrearEstudiantes, ModificarEstudiantes
-
-from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.shortcuts import redirect, render
+# Imports para CBV
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.views.generic.list import ListView
+
 
 def inicio(request):
     return render(request, 'index.html')
