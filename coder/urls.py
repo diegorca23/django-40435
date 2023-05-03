@@ -14,7 +14,7 @@ urlpatterns = [
     # path('cursos/<int:id_curso>/eliminar/', views.eliminar_cursos, name='eliminar_cursos'),
 
     # ESTUDIANTES
-    path('estudiantes/', views.listar_estudiantes, name='estudiantes'),
+    # path('estudiantes/', views.listar_estudiantes, name='estudiantes'),
     path('estudiantes/crear/', views.crear_estudiantes, name='crear_estudiantes'),
     path('estudiantes/<int:id_estudiante>/', views.detalle_estudiantes, name='mostrar_estudiantes'),
     path('estudiantes/<int:id_estudiante>/modificar/', views.modificar_estudiantes, name='modificar_estudiantes'),
@@ -32,4 +32,9 @@ urlpatterns = [
     path('cursos/<int:pk>/', views.MostrarCurso.as_view(), name='mostrar_cursos'),
     path('cursos/<int:pk>/modificar/', views.ModificarCurso.as_view(), name='modificar_cursos'),
     path('cursos/<int:pk>/eliminar/', views.EliminaCurso.as_view(), name='eliminar_cursos'),
+
+
+    # Estudiantes
+    path('estudiantes/', views.ListaEstudiantes.as_view(), name='estudiantes'),
+    #path('estudiantes/crear/', views.CrearEstudiante.as_view(), name='crear_estudiantes'),
 ]

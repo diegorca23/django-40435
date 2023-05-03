@@ -145,3 +145,13 @@ class EliminaCurso(DeleteView):
     model = Curso
     template_name = 'cbv/cursos/cursos_eliminar.html'
     success_url = '/cursos/'
+
+class ListaEstudiantes(ListView):
+    model = Estudiante
+    template_name = 'cbv/estudiantes/estudiantes.html'
+
+class CrearEstudiante(CreateView):
+    model = Estudiante
+    template_name = 'cbv/estudiantes/estudiantes_crear.html'
+    success_url = '/estudiantes/'
+    fields = ['nombre', 'edad']

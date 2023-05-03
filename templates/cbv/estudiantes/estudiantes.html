@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block contenido_title %}
+        <title>Estudiantes</title>
+{% endblock  %}
+{% block contenido_header %}
+        <h1 class="mb-5">Bienvenido a la pagina de Estudiantes</h1>
+{% endblock contenido_header %}
+
+{% block contenido %}
+        {% if object_list %}
+                {% for estudiante in object_list %}
+                        <li>
+                                <a class="navbar-brand" href={% url 'mostrar_estudiantes' estudiante.id %}>{{estudiante.nombre}} - {{estudiante.edad}}</a>
+                                <button>
+                                        <a class="navbar-brand" href={% url 'modificar_estudiantes' estudiante.id %}>Modificar</a>
+                                </button>
+                                <button>
+                                        <a class="navbar-brand" href={% url 'eliminar_estudiantes' estudiante.id %}>Eliminar</a>
+                                </button>
+                        </li>
+                {% endfor %}
+        {% else %}
+                <h2>No hay datos sobre estudiantes por el momento.</h2>
+        {% endif %}
+        <a class="navbar-brand" href={% url 'crear_estudiantes' %}>Crear un estudiante</a>
+{% endblock contenido %}
