@@ -1,6 +1,8 @@
 from coder.forms import (CrearCursos, CrearEstudiantes, ModificarCursos,
                          ModificarEstudiantes)
 from coder.models import Curso, Estudiante
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 # Imports para CBV
 from django.views.generic.detail import DetailView
@@ -80,6 +82,7 @@ def crear_estudiantes(request):
     formulario = CrearEstudiantes()
     return render(request, 'estudiantes_crear.html', {'formulario': formulario})
 
+
 def listar_estudiantes(request):
     estudiantes = Estudiante.objects.all()
     return render(request, 'estudiantes.html', {'estudiantes': estudiantes})
@@ -88,11 +91,13 @@ def detalle_estudiantes(request, id_estudiante):
     estudiante_a_mostrar = Estudiante.objects.get(id=id_estudiante)
     return render(request, 'estudiantes_mostrar.html', {'estudiante_a_mostrar': estudiante_a_mostrar})
 
+@login_required
 def eliminar_estudiantes(request, id_estudiante):
     estudiante_a_eliminar = Estudiante.objects.get(id=id_estudiante)
     estudiante_a_eliminar.delete()
     return redirect('estudiantes')
 
+@login_required
 def modificar_estudiantes(request, id_estudiante):
     estudiante_a_modificar = Estudiante.objects.get(id=id_estudiante)
     
@@ -135,13 +140,13 @@ class MostrarCurso(DetailView):
     model = Curso
     template_name = 'cbv/cursos/cursos_mostrar.html'
 
-class ModificarCurso(UpdateView):
+class ModificarCurso(LoginRequiredMixin, UpdateView):
     model = Curso
     template_name = 'cbv/cursos/cursos_modificar.html'
     success_url = '/cursos/'
     fields = ['comision', 'lenguaje']
 
-class EliminaCurso(DeleteView):
+class EliminaCurso(LoginRequiredMixin, DeleteView):
     model = Curso
     template_name = 'cbv/cursos/cursos_eliminar.html'
     success_url = '/cursos/'
