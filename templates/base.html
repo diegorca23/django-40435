@@ -26,8 +26,11 @@
                 <a class="navbar-brand" href="{% url 'estudiantes' %}">Estudiantes</a>
                 <a class="navbar-brand" href="{% url 'cursos' %}">Cursos</a>
                 <a class="navbar-brand" href="{% url 'profesores' %}">Profesores</a>
-                <a href="#">{{request.user.username}}</a>
+                <a href="{% url 'usuarios:editar_perfil' %}">{{request.user.username}}</a>
                 {% if request.user.is_authenticated %}
+                    {% if request.user.informacionextra.avatar %}
+                        <img src={{request.user.informacionextra.avatar.url}} alt="" height="40px">
+                    {% endif %}
                 <a class="btn btn-primary" href="{% url 'usuarios:logout' %}">Cerrar Sesión</a>
                 {% else %}
                 <a class="btn btn-primary" href="{% url 'usuarios:login' %}">Iniciar Sesión</a>
